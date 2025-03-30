@@ -8,7 +8,7 @@ from master import masterdl
 async def account_login(bot, m):
     try:
         Credit = Config.CREDIT
-        editable = await m.reply_text('__Send 🗂️Master TXT🗂️ file for download__')
+        editable = await m.reply_text('__Send TXT File__')
         
         # Listen for the document file
         input = await bot.listen(chat_id=m.chat.id, filters=filters.document & filters.user(m.from_user.id))
@@ -32,25 +32,25 @@ async def account_login(bot, m):
         raw_text = input0.text
         await input0.delete(True)
 
-        await editable.edit("__Enter Batch Name or send 1 for grabbing from text filename.__")
+        await editable.edit("__Enter Batch Name or send /d for grabbing from text filename.__")
         input1 = await bot.listen(chat_id=m.chat.id, filters=filters.text & filters.user(m.from_user.id))
         raw_text0 = input1.text
         await input1.delete(True)
-        if raw_text0 == '1':
+        if raw_text0 == '/d':
             b_name = file_name
         else:
             b_name = raw_text0
 
-        await editable.edit("__Enter resolution__\n\nEg - `360` or `480` or `720`")
+        await editable.edit("__Enter resolution__\n\nEg - `180` or `240` or `360` or `480` or `720`")
         input2 = await bot.listen(chat_id=m.chat.id, filters=filters.text & filters.user(m.from_user.id))
         raw_text2 = input2.text
         await input2.delete(True)
 
-        await editable.edit(f"__Enter Your Name\n\nSend 1 for `{Credit}`")
+        await editable.edit(f"__Enter Your Name\n\nSend /d for `{Credit}`")
         input3 = await bot.listen(chat_id=m.chat.id, filters=filters.text & filters.user(m.from_user.id))
         raw_text3 = input3.text
         await input3.delete(True)
-        if raw_text3 == '1':
+        if raw_text3 == '/d':
             MR = Credit
         else:
             MR = raw_text3
