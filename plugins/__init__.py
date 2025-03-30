@@ -60,7 +60,29 @@ async def start(bot, m: Message):
             "`Great! You are a premium member! `🌟\n\n"
             f"**If you face any problem contact - ** {Config.CREDIT}"
         )
-
+@bot.on_message(filters.command(["drm"]))
+async def help_handler(client: Client, m: Message):
+    await bot.send_message(m.chat.id, text= (
+        "<pre><code> 🎉 Welcome to DRM Bot! 🎉</code></pre>\n\n"
+        "You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including:\n\n"
+        "Send /help for free users.\n\n"
+        "`• 📚 Appx Zip+Encrypted Url\n"
+        "• 🎓 Classplus DRM+ NDRM\n"
+        "• 🧑‍🏫 PhysicsWallah DRM\n"
+        "• 📚 CareerWill + PDF\n"
+        "• 🎓 Khan GS\n"
+        "• 🎓 Study Iq DRM\n"
+        "• 🚀 APPX + APPX Enc PDF\n"
+        "• 🎓 Vimeo Protection\n"
+        "• 🎓 Brightcove Protection\n"
+        "• 🎓 Visionias Protection\n"
+        "• 🎓 Zoom Video\n"
+        "• 🎓 Utkarsh Protection(Video + PDF)\n"
+        "• 🎓 All Non DRM+AES Encrypted URLs\n"
+        "• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)`\n\n"
+        "🚀 You are not subscribed to any plan yet!\n\n"
+        "<pre><code>Contact to RAHUL for buy membership.</code></pre>"
+    ))
 
 @bot.on_message(filters.command("stop"))
 async def restart_handler(bot, m):
